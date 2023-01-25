@@ -67,7 +67,7 @@ module roller_cutter(have_sensor=1)
   channel_angle = 38; // fall down angle
   channel_dim = [5,roller_dim[0],roller_dim[1]]; // from center of roller, at fall down angle
   top_insert_dim = [10,roller_dim[0]+0,roller_dim[1]];
-  hall_pos = [0.5,0,6]; // from roller pos
+  hall_pos = [0.7,0,6]; // from roller pos
   // roller cut
   translate(roller_pos)
   cylinder(d=roller_dim[0],h=roller_dim[1],$fn=32,center=true);
@@ -136,8 +136,8 @@ module filament_guide()
 module holder_bars()
 {
   // filament entry side
-  holder_pos = guide_pos + [0,0,8];
-  holder_dim = guide_dim - [0,0,6];
+  holder_pos = guide_pos + [0,0,7.5];
+  holder_dim = guide_dim - [0,0,5];
   holder_thick = 5;
   translate(holder_pos)
     difference()
@@ -185,14 +185,15 @@ module spacer()
      union()
      {
        holder_bars();
-       translate([0,0,9.5])
-       screw_holes(d=5,h=5);
+       translate([0,0,9.0])
+       screw_holes(d=5,h=6);
      }
-     screw_holes();
+     screw_holes(d=1.8);
      connector_pcb();
    }
 }
 
+// sensor
 if(1)
 rotate([-90,0,0])
 {
@@ -213,6 +214,7 @@ difference()
 
 }
 
+// spacer
 if(0)
 {
   spacer();
