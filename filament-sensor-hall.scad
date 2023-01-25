@@ -38,10 +38,10 @@
 // Support -> Sensor info
 // Fil. sensor: 1-LOADED, 0-EMPTY
 
-hall_pos = [0.5,0,6]; // adjust X value for triggering
+hall_pos = [0.3,0,6]; // adjust X value for triggering
 
-hall_sensor_dim = [5,5,2];
-//hall_sensor_dim = [4.06, 3.0, 1.6]*1.1; // Honeywell SS495A package, with enlarge factor for hole
+hall_sensor_dim = [5,5,1.9];
+//hall_sensor_dim = [4.06, 3.0, 1.6]; // Honeywell SS495A package, with enlarge factor for hole
 filament_hole_d = 2.3; // 1.75mm should freely passthru
 
 // the filament sensor cube dim
