@@ -39,10 +39,10 @@ force from the second magnet.
 
 Second magnet should be used if filament sensor is
 not always vertical. It provides a more reliable return
-but it increases return force, increasing the friction too.
-It also provides attractive force so magnets in place
-won't leave sensor easly.
-Attractive force can be tuned by varying distance of
+but it increases force, increasing the friction too.
+Attractive force holds magnets together so they
+won't leave sensor easly (use another magnet to remove).
+Friction can be tuned by varying distance of
 second magnet from the filament detection magnet.
 
 # Mechanical switch
