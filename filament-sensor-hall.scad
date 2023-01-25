@@ -95,10 +95,11 @@ module roller_cutter(have_sensor=1)
   }
 }
 
+guide_dim=[24,16,8+3];
+guide_pos=[-2,0,1.5];
+
 module filament_guide()
 {
-  guide_dim=[24,16,8+3];
-  guide_pos=[-2,0,1.5];
   difference()
   {
     union()
@@ -135,20 +136,15 @@ module filament_guide()
 module holder_bars()
 {
   // filament entry side
-  translate([4+11.5-3,-7.8,0])
-    cube([20,2.4,6],center=true);
-  // filament exit side
-  translate([4+11.5-3,11.8,0])
-    cube([20,2.4,6],center=true);
-  // switch side near roller
-  translate([11.5,9.8,0])
-    cube([6,6.4,6],center=true);
-  // holds pcb filament entry side
-  translate([20,-4.6,0])
-    cube([5,4,6],center=true);
-  // holds pcb filament exit side
-  translate([20,8.6,0])
-    cube([5,4,6],center=true);
+  holder_pos = guide_pos + [0,0,8];
+  holder_dim = guide_dim - [0,0,6];
+  holder_thick = 5;
+  translate(holder_pos)
+    difference()
+    {
+      cube(holder_dim,center=true);
+      cube(holder_dim+[-holder_thick,-holder_thick,1],center=true);
+    }
 }
 
 module baseplate()
@@ -157,34 +153,67 @@ module baseplate()
       cube([25,22,3],center=true);
 }
 
-module screw_holes()
+
+mounting_holes=[[-3,-5],[7,5],[-7,5]];
+
+module screw_holes(d=3, h=30)
 {
-  mounting_holes=[[4.5,-6],[11.5,10]];
-     // mounting holes
-  for(i=[0,1])
+  // mounting holes
+  for(i=[0,1,2])
       translate(mounting_holes[i])
         rotate([0,0,90])
-          cylinder(d=3,h=20,$fn=12,center=true);
+          cylinder(d=d,h=h,$fn=12,center=true);
 }
 
-connector_pcb_cube=[1.7,11,7.7];
-connector_pcb_pos=[20,2.05,-0.84];
+connector_pcb_cube=[1.7,13,7.7];
+connector_pcb_pos=[-11,0,9];
 
-module connector_pcb(scl=[1,1,1])
+module connector_pcb()
 {
   translate(connector_pcb_pos)
-  scale(scl)
   cube(connector_pcb_cube,center=true);
   // connector front cut
-  translate(connector_pcb_pos+[2,-0.1,0])
-    cube([5,9.2,7],center=true);
+  translate(connector_pcb_pos+[-2,0,0])
+    cube([5,10,7],center=true);
 }
 
+// mounting spacer with connector cut and screw holes
+module spacer()
+{
+   difference()
+   {
+     union()
+     {
+       holder_bars();
+       translate([0,0,9.5])
+       screw_holes(d=5,h=5);
+     }
+     screw_holes();
+     connector_pcb();
+   }
+}
 
 if(1)
 rotate([-90,0,0])
 {
 %filament();
 %connector_pcb();
-filament_guide();
+difference()
+{
+  union()
+  {
+    filament_guide();
+    //holder_bars();
+  }
+  connector_pcb();
+  screw_holes();
+}
+
+%spacer();
+
+}
+
+if(0)
+{
+  spacer();
 }
