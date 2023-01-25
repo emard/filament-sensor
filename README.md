@@ -6,6 +6,8 @@ with cotactless Hall sensor or with mechanical microswitch.
 
 # Hall sensor
 
+![Image](/pic/levitator.png)
+
 Applies very small force to the filament,
 minimizing friction.
 
