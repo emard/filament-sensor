@@ -12,7 +12,7 @@ Applies very small force to the filament,
 minimizing friction.
 
 Magnet (5x5 mm Neodymium cylinder) is the only moving
-part. Solid state Hall sensor (Honeywell SS495A or similar)
+part. Solid state Hall sensor (Honeywell SS495A or similar for 5V)
 in 3-pin transistor plastic case directly connects to
 printer motherboard electronics.
 
