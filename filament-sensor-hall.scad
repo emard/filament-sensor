@@ -45,8 +45,14 @@ hall_sensor_dim = [5,5,2];
 filament_hole_d = 2.3; // 1.75mm should freely passthru
 
 // the filament sensor cube dim
-guide_dim=[24,16,8+3]; // reduce Z to see cross-section
-guide_pos=[-2,0,1.5];
+guide_dim=[25,16,8+3]; // reduce Z to see cross-section
+guide_pos=[-2.5,0,1.5];
+
+magnet2_pos = [-5,0,0]; // adjust X to tune force
+
+connector_pcb_cube=[1.7,13,7.7];
+connector_pcb_pos=[-12,0,9];
+
 
 mounting_holes=[[-3,-5],[6,5],[-6,5]];
 
@@ -116,7 +122,7 @@ module filament_guide()
     // main roller hole and sensor
     roller_cutter();
     // additional magnet to increase force
-    translate([-4,0,0]) // more X distance less force
+    translate(magnet2_pos) // more X distance less force
       scale([-1,1,1]) // mirror
         roller_cutter(have_sensor=0);
     // filament hole thru all
@@ -169,9 +175,6 @@ module screw_holes(d=3, h=30)
           cylinder(d=d,h=h,$fn=12,center=true);
 }
 
-connector_pcb_cube=[1.7,13,7.7];
-connector_pcb_pos=[-11,0,9];
-
 module connector_pcb()
 {
   translate(connector_pcb_pos)
@@ -222,5 +225,6 @@ difference()
 // spacer
 if(0)
 {
+  rotate([180,0,0])
   spacer();
 }
