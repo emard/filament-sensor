@@ -28,7 +28,7 @@ logic, flip both magnets or flip the sensor.
 Flipping sensor moves triggering point, internal
 chip is closer to the flat side of the sensor
 plastic package. Default orientation is flat
-side away from filament.
+side towards filament.
 
 When filament moves thru the sensor, it can
 either slide over the magnet or rotate the
