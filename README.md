@@ -23,10 +23,11 @@ position in space where magnetic flux has one
 sign when sensor is empty and opposite sign
 when sensor is loaded so the sensor reacts
 reliably reading logical 1 or 0. To invert
-logic, rotate both magnets 180°. Default sensor
-position is flat side away from filament. To change
-triggering point, rotate sensor 180° flat side
-close to filament.
+logic, flip both magnets or flip the sensor.
+Flipping sensor moves triggering point, internal
+chip is closer to the flat side of the sensor
+plastic package. Default orientation is flat
+side away from filament.
 
 When filament moves thru the sensor, it can
 either slide over the magnet or rotate the
