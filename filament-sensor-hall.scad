@@ -38,9 +38,17 @@
 // Support -> Sensor info
 // Fil. sensor: 1-LOADED, 0-EMPTY
 
+hall_pos = [0.5,0,6]; // adjust X value for triggering
+
 hall_sensor_dim = [5,5,2];
 //hall_sensor_dim = [4.06, 3.0, 1.6]*1.1; // Honeywell SS495A package, with enlarge factor for hole
 filament_hole_d = 2.3; // 1.75mm should freely passthru
+
+// the filament sensor cube dim
+guide_dim=[24,16,8+3]; // reduce Z to see cross-section
+guide_pos=[-2,0,1.5];
+
+mounting_holes=[[-3,-5],[6,5],[-6,5]];
 
 module hall_sensor()
 {
@@ -67,7 +75,6 @@ module roller_cutter(have_sensor=1)
   channel_angle = 38; // fall down angle
   channel_dim = [5,roller_dim[0],roller_dim[1]]; // from center of roller, at fall down angle
   top_insert_dim = [10,roller_dim[0]+0,roller_dim[1]];
-  hall_pos = [0.5,0,6]; // adjust X value for triggering
   // roller cut
   translate(roller_pos)
   cylinder(d=roller_dim[0],h=roller_dim[1],$fn=32,center=true);
@@ -95,8 +102,6 @@ module roller_cutter(have_sensor=1)
   }
 }
 
-guide_dim=[24,16,8+3];
-guide_pos=[-2,0,1.5];
 
 module filament_guide()
 {
@@ -136,7 +141,7 @@ module filament_guide()
 module holder_bars()
 {
   // filament entry side
-  holder_pos = guide_pos + [0,0,7.5];
+  holder_pos = guide_pos + [0,0,8.5];
   holder_dim = guide_dim - [0,0,5];
   holder_thick = 5;
   translate(holder_pos)
@@ -154,7 +159,6 @@ module baseplate()
 }
 
 
-mounting_holes=[[-3,-5],[7,5],[-7,5]];
 
 module screw_holes(d=3, h=30)
 {
@@ -185,10 +189,11 @@ module spacer()
      union()
      {
        holder_bars();
-       translate([0,0,9.0])
-       screw_holes(d=5,h=6);
+       translate([0,0,10])
+       screw_holes(d=4,h=6);
      }
      screw_holes(d=1.8);
+     translate([0,0,0.2])
      connector_pcb();
    }
 }
