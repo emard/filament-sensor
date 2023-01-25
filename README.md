@@ -11,6 +11,44 @@ with cotactless Hall sensor or with mechanical microswitch.
 Applies very small force to the filament,
 minimizing friction.
 
+    prusa has this logic in its original IR filament sensor
+    sensor OUT:
+    0 (LOW)  LOADED
+    1 (HIGH) EMPTY
+    IR sensor pinout
+    +  +5V
+    O  OUT
+    -  GND
+    
+    MK2S rambo13a 10-pin connector looking at PCB pins
+    ---------
+    x x x x x
+    - s x - +
+    ---------
+    -=GND, +=+5V, s=signal
+    
+    MK3 einsy10a 10-pin connector looking at PCB pins
+    ---   ---
+    x x x x x
+    s x x - +
+    ---------
+    -=GND, +=+5V, s=signal
+    
+    HALL sensor Honeywell SS495A, on package is written 95A
+    pinout looking at pins, plastic case at the back
+      _______
+     / + - o \
+     ---------
+    
+    connect
+     - -
+     + +
+     s o
+    
+    Prusa MK2.5S firmware can be loaded to MK2S
+    Support -> Sensor info
+    Fil. sensor: 1-LOADED, 0-EMPTY
+
 Magnet (5x5 mm Neodymium cylinder) is the only moving
 part. Solid state Hall sensor (Honeywell SS495A or similar for 5V)
 in 3-pin transistor plastic case directly connects to
