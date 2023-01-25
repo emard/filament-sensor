@@ -36,7 +36,7 @@ magnet in the channel. In either case, friction
 is very small.
 
 When filament is removed, magnet returns to its
-default position by its own gravity or by attractive
+default position by its own weight or by attractive
 force from the second magnet.
 
 Second magnet should be used if filament sensor is
