@@ -85,9 +85,9 @@ second magnet from the filament detection magnet.
 
 Attractive force holds magnets together so they
 won't leave sensor easily. To remove inserted
-DxH=5x5 mm magnets, insert filament, approach
-external magnet DxH=10x5 mm from the side and
-drag it.
+DxH=5x5 mm magnets, insert filament, try to shake
+it out or approach external magnet DxH=10x5 mm
+from the side and drag it.
 
 # Mechanical switch
 
