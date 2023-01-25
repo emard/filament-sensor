@@ -67,7 +67,7 @@ module roller_cutter(have_sensor=1)
   channel_angle = 38; // fall down angle
   channel_dim = [5,roller_dim[0],roller_dim[1]]; // from center of roller, at fall down angle
   top_insert_dim = [10,roller_dim[0]+0,roller_dim[1]];
-  hall_pos = [0.7,0,6]; // from roller pos
+  hall_pos = [0.5,0,6]; // adjust X value for triggering
   // roller cut
   translate(roller_pos)
   cylinder(d=roller_dim[0],h=roller_dim[1],$fn=32,center=true);
