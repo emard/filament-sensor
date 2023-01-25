@@ -45,8 +45,10 @@ Friction can be tuned by varying distance of
 second magnet from the filament detection magnet.
 
 Attractive force holds magnets together so they
-won't leave sensor easily. Inserted DxH=5x5 mm
-magnets can be removed with external magnet DxH=10x5 mm.
+won't leave sensor easily. To remove inserted
+DxH=5x5 mm magnets, insert filament, approach
+external magnet DxH=10x5 mm from the side and
+drag it.
 
 # Mechanical switch
 
