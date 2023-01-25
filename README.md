@@ -21,10 +21,9 @@ position in channel close to the empty filament
 guide. Inserted filament displaces the magnet.
 
 Sensor is precisely located on the special
-position in space where magnetic flux has one
-sign when sensor is empty and opposite sign
-when sensor is loaded so the sensor reacts
-reliably reading logical 1 or 0. To invert
+position in space where magnetic flux reverses
+sign when filament is inserted so the sensor
+reacts reliably reading logical 1 or 0. To invert
 logic, flip both magnets or flip the sensor.
 Flipping sensor moves triggering point, internal
 chip is closer to the flat side of the sensor
