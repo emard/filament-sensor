@@ -53,9 +53,13 @@ drag it.
 
 # Mechanical switch
 
-Mechanical switch with roller applies default
-force to the filament. It should be precisely
+![Image](/pic/filament-sensor-switch.png)
+
+Applies more friction to the filament than
+the Hall sensor.
+
+Mechanical switch with roller applies its designed
+force to the filament. Roller should be precisely
 positioned relative to the filament to reliably
-trigger. The friction between filament and the
-roller of the switch is higher than with Hall
-sensor.
+trigger so there is not much space to tune the
+force.
