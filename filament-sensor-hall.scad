@@ -40,7 +40,7 @@
 
 hall_pos = [0.3,0,6]; // adjust X value for triggering
 
-hall_sensor_dim = [5,5,1.9];
+hall_sensor_dim = [5,5,1.8];
 //hall_sensor_dim = [4.06, 3.0, 1.6]; // Honeywell SS495A package, with enlarge factor for hole
 filament_hole_d = 2.3; // 1.75mm should freely passthru
 
@@ -147,14 +147,16 @@ module filament_guide()
 module holder_bars()
 {
   // filament entry side
-  holder_pos = guide_pos + [0,0,8.5];
-  holder_dim = guide_dim - [0,0,5];
-  holder_thick = 5;
+  holder_pos = guide_pos + [0,0,9];
+  holder_dim = guide_dim - [0,0,4];
+  holder_thick = 2;
+  holder_backplate_thick = 1;
   translate(holder_pos)
     difference()
     {
       cube(holder_dim,center=true);
-      cube(holder_dim+[-holder_thick,-holder_thick,1],center=true);
+      translate([0,0,-holder_backplate_thick/2-0.01])
+      cube(holder_dim+[-holder_thick*2,-holder_thick*2,-holder_backplate_thick],center=true);
     }
 }
 
@@ -163,8 +165,6 @@ module baseplate()
     translate([10,2,-1.5-6/2])
       cube([25,22,3],center=true);
 }
-
-
 
 module screw_holes(d=3, h=30)
 {
@@ -192,13 +192,94 @@ module spacer()
      union()
      {
        holder_bars();
-       translate([0,0,10])
-       screw_holes(d=4,h=6);
+       translate([0,0,10.5])
+       screw_holes(d=4,h=7);
      }
      screw_holes(d=1.8);
      translate([0,0,0.2])
      connector_pcb();
    }
+}
+
+module pendulum()
+{
+  pendulum_dim = [5,40,5];
+  pendulum_pos = [0,28,0.5];
+  ring_inner_d = 10;
+  ring_outer_d = 15;
+  difference()
+  {
+    union()
+    {
+      translate(pendulum_pos)
+        cube(pendulum_dim, center=true);
+      translate(pendulum_pos+[0,pendulum_dim[1]/2,0])
+        cylinder(d=ring_outer_d,h=pendulum_dim[2],$fn=32,center=true);
+    }
+    // hole for bearing
+    translate(pendulum_pos+[0,pendulum_dim[1]/2,0])
+        cylinder(d=ring_inner_d,h=pendulum_dim[2]+1,$fn=32,center=true);
+    // hole for cable organizer
+    translate([0,30,0.5])
+      rotate([0,90,0])
+        cylinder(d=3,h=10,$fn=12,center=true);
+  }
+}
+
+module pendulum_holder_screw_holes()
+{
+  mounting_holes=[[4.5-6,-6-5,0],[11.5-6,10-5,0]];
+     // mounting holes
+  for(i=[0,1])
+      translate(mounting_holes[i])
+        rotate([0,0,90])
+        {
+          cylinder(d=3,h=20,$fn=12,center=true);
+          // hole for sunken head
+          translate([0,0,5])
+          cylinder(d=6,h=10,$fn=12,center=true);
+        }
+}
+
+module pendulum_holder()
+{
+  plate_box = [25,30,4];
+  axis_pos = [0,-3,0];
+  axis = [9,6]; // d,h
+  difference()
+  {
+    cube(plate_box,center=true);
+    pendulum_holder_screw_holes();
+  }
+  // axis
+  translate(axis_pos+[0,0,plate_box[2]/2+axis[1]/2])
+  difference()
+  {
+    cylinder(d=axis[0],h=axis[1],$fn=32,center=true);
+    // screw hole
+    cylinder(d=1.8,h=axis[1]+1,$fn=32,center=true);
+  }
+  // filament holder
+  if(1)
+  translate([0,12,6])
+    cube([5,6,10],center=true);
+  // circular holder
+  translate([0,12,30])
+    rotate([90,0,0])
+    difference()
+    {
+      cylinder(d=40,h=6,$fn=32,center=true);
+      cylinder(d=30,h=11,$fn=32,center=true);
+    }
+}
+
+module holder_disc()
+{
+  difference()
+  {
+    cylinder(d=15,h=2,$fn=32,center=true);
+    cylinder(d=3,h=3,$fn=32,center=true);
+  }
 }
 
 // sensor
@@ -222,9 +303,21 @@ difference()
 
 }
 
-// spacer
+// pendulum with backplate
 if(0)
 {
+  translate([0,0,12])
   rotate([180,0,0])
   spacer();
+  pendulum();
 }
+
+// pendulum holder to be screwd on snap-on adapter
+if(0)
+{
+  pendulum_holder();
+}
+
+// disc on top of the holder
+if(0)
+  holder_disc();
