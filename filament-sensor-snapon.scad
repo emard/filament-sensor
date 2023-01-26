@@ -21,11 +21,11 @@ extbar_points = [
   // go up
   [25,-9], [30,-9],
   // lean forward
-  [60,-40], [110, -40],
+  [70,-60], [160, -60],
   // back side return
-  [110, -36], [61, -36],
+  [160, -56], [72, -56],
   // return down
-  [31,-5], [25,-5]
+  [32,-5], [25,-5]
 ];
 
 module frame()
@@ -36,12 +36,12 @@ module frame()
 module mounting_holes_cutter()
 {
   // [[4.5,-6],[11.5,10]];
-  offset=[95,-40,-10];
-  holes_pos=[[offset[0]+10,offset[1],offset[2]+4.5],[offset[0]-6,offset[1],offset[2]+11.5]];
+  offset=[145,-60,0];
+  holes_pos=[[offset[0]+10,offset[1],offset[2]-10],[offset[0]-10,offset[1],offset[2]+10]];
   for(i=[0,1])
     translate(holes_pos[i])
       rotate([90,0,0])
-      cylinder(d=1.8,h=20,$fn=12,center=true);
+      cylinder(d=3,h=20,$fn=12,center=true);
 }
 
 module snapon_clip()

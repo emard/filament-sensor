@@ -228,14 +228,15 @@ module pendulum()
 
 module pendulum_holder_screw_holes()
 {
-  mounting_holes=[[4.5-6,-6-5,0],[11.5-6,10-5,0]];
+  mounting_holes=[[10,10,0],[-10,-10,0]];
      // mounting holes
   for(i=[0,1])
       translate(mounting_holes[i])
         rotate([0,0,90])
         {
-          cylinder(d=3,h=20,$fn=12,center=true);
+          cylinder(d=1.8,h=20,$fn=12,center=true);
           // hole for sunken head
+          if(0)
           translate([0,0,5])
           cylinder(d=6,h=10,$fn=12,center=true);
         }
