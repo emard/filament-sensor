@@ -281,15 +281,15 @@ module pendulum_holder()
   }
   // filament holder
   if(1)
-  translate([0,12,6])
+  translate([0,12,7])
     cube([5,6,10],center=true);
   // circular holder
   translate([0,12,30])
-    rotate([90,0,0])
+    rotate([90,90,0])
     difference()
     {
-      cylinder(d=40,h=6,$fn=32,center=true);
-      cylinder(d=30,h=11,$fn=32,center=true);
+      cylinder(d=40,h=6,$fn=6,center=true);
+      cylinder(d=30,h=11,$fn=6,center=true);
     }
 }
 
