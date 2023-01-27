@@ -201,9 +201,19 @@ module spacer()
    }
 }
 
+cableorg_holes_pos = [[0,32], [0,22]];
+module cableorg_holes(d=1.8)
+{
+    // holes for cable organizer
+    for(i=[0,1])
+    translate(cableorg_holes_pos[i])
+      rotate([0,0,0])
+        cylinder(d=d,h=20,$fn=12,center=true);
+}
+
 module pendulum()
 {
-  pendulum_dim = [5,40,5];
+  pendulum_dim = [7,40,5];
   pendulum_pos = [0,28,0.5];
   ring_inner_d = 10;
   ring_outer_d = 15;
@@ -219,10 +229,19 @@ module pendulum()
     // hole for bearing
     translate(pendulum_pos+[0,pendulum_dim[1]/2,0])
         cylinder(d=ring_inner_d,h=pendulum_dim[2]+1,$fn=32,center=true);
-    // hole for cable organizer
-    translate([0,30,0.5])
-      rotate([0,90,0])
-        cylinder(d=3,h=10,$fn=12,center=true);
+    cableorg_holes();
+  }
+}
+
+module cable_cover()
+{
+  difference()
+  {
+    translate([0,27,5])
+    cube([7,15,3],center=true);
+    translate([0,27,4])
+    cube([8,6,1.01],center=true);
+    cableorg_holes(d=3);
   }
 }
 
@@ -322,3 +341,6 @@ if(0)
 // disc on top of the holder
 if(0)
   holder_disc();
+
+if(0)
+  cable_cover();
