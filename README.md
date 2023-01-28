@@ -58,11 +58,10 @@ When sensor is empty, magnet is placed at the
 position in channel close to the empty filament
 guide. Inserted filament displaces the magnet.
 
-Sensor is precisely located on the special
-position in space where magnetic flux reverses
-sign when filament is inserted so the sensor
-reacts reliably reading logical 1 or 0. To invert
-logic, flip both magnets or flip the sensor.
+Best location for the Hall sensor is where magnetic
+flux reverses sign when filament is inserted,
+so the sensor reliably reads logical 1 or 0.
+To invert logic, flip both magnets or flip the sensor.
 Flipping sensor moves triggering point, internal
 chip is closer to the flat side of the sensor
 plastic package. Default orientation is flat
@@ -75,9 +74,11 @@ haven't tried them yet. For example SS411P with
 bipolar triggering in range of +50/-50 Gauss
 or AH3377 with unipolar triggering in
 range of +115/+90 Gauss.
-Different sensor may need adjustment, experiment
-with its position along the channel, in case of
-false runout, reduce the X parameter in steps of 0.1:
+
+Different sensor or the same sensor flipped
+may need adjustment, experiment with position
+along the channel, in case of false runout,
+reduce the X parameter in steps of 0.1:
 
     hall_pos = [X,Y,Z];
 
