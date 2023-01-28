@@ -342,5 +342,13 @@ if(0)
 if(0)
   holder_disc();
 
+// spacer disk for too long screws
+if(0)
+  difference()
+  {
+    cylinder(d=6.0,h=1.5,$fn=12,center=true);
+    cylinder(d=2.5,h=2.0,$fn=12,center=true);
+  }
+
 if(0)
   cable_cover();
