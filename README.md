@@ -68,6 +68,15 @@ chip is closer to the flat side of the sensor
 plastic package. Default orientation is flat
 side towards filament.
 
+Sensor used is SS495A, analog rail-to-rail output
+with high sensitivity 3 mV/Gauss = 30 V/Tesla.
+Sensor with digital output like AH337 could be
+used too but I haven't tried it. Different sensor
+may need adjustment, experiment with its position
+along the channel, the X parameter:
+
+    hall_pos = [X,Y,Z];
+
 When filament moves thru the sensor, it can
 either slide over the magnet or rotate the
 magnet in the channel. In either case, friction
