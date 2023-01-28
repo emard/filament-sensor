@@ -70,8 +70,11 @@ side towards filament.
 
 Sensor used is SS495A, analog rail-to-rail output
 with high sensitivity 3 mV/Gauss = 30 V/Tesla.
-Bipolar sensor with digital output like SS411P or AH3377
-could be used too but I haven't tried it.
+Digital output sensor could be used too but I
+haven't tried them yet. For example SS411P with
+bipolar triggering in range of +50/-50 Gauss
+or AH3377 with unipolar triggering in
+range of +115/+90 Gauss.
 Different sensor may need adjustment, experiment
 with its position along the channel, in case of
 false runout, reduce the X parameter in steps of 0.1:
