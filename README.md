@@ -62,10 +62,13 @@ Best location for the Hall sensor is where magnetic
 flux reverses sign when filament is inserted,
 so the sensor reliably reads logical 1 or 0.
 To invert logic, flip both magnets or flip the sensor.
-Flipping sensor moves triggering point, internal
-chip is closer to the flat side of the sensor
-plastic package. Default orientation is flat
-side towards filament.
+Default orientation is flat side towards filament.
+
+Flipping or using different sensor may need adjustment,
+experiment with position along the channel, in case of
+false runout, reduce the X parameter in steps of 0.1:
+
+    hall_pos = [X,Y,Z];
 
 Sensor used is SS495A, analog rail-to-rail output
 with high sensitivity 3 mV/Gauss = 30 V/Tesla.
@@ -74,13 +77,6 @@ haven't tried them yet. For example SS411P with
 bipolar triggering in range of +50/-50 Gauss
 or AH3377 with unipolar triggering in
 range of +115/+90 Gauss.
-
-Different sensor or the same sensor flipped
-may need adjustment, experiment with position
-along the channel, in case of false runout,
-reduce the X parameter in steps of 0.1:
-
-    hall_pos = [X,Y,Z];
 
 When filament moves thru the sensor, it can
 either slide over the magnet or rotate the
