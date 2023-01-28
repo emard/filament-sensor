@@ -70,7 +70,7 @@ false runout, reduce the X parameter in steps of 0.1:
 
     hall_pos = [X,Y,Z];
 
-Sensor used is SS495A, analog rail-to-rail output
+Hall sensor used is SS495A, analog rail-to-rail output
 with high sensitivity 3 mV/Gauss = 30 V/Tesla.
 Digital output sensor could be used too but I
 haven't tried them yet. For example SS411P with
@@ -78,7 +78,7 @@ bipolar triggering in range of +50/-50 Gauss
 or AH3377 with unipolar triggering in
 range of +115/+90 Gauss.
 
-When filament moves thru the sensor, it can
+When filament moves thru the guide, it can
 either slide over the magnet or rotate the
 magnet in the channel. In either case, friction
 is very small.
@@ -96,8 +96,9 @@ second magnet from the filament detection magnet.
 Attractive force holds magnets together so they
 won't leave sensor easily. To remove inserted
 DxH=5x5 mm magnets, insert filament, try to shake
-it out or approach external magnet DxH=10x5 mm
-from the side and drag it.
+it out, touch it with some steel or approach
+external magnet DxH=10x5 mm from the side and
+drag it.
 
 # Mechanical switch
 
