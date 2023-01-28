@@ -73,7 +73,8 @@ with high sensitivity 3 mV/Gauss = 30 V/Tesla.
 Sensor with digital output like AH337 could be
 used too but I haven't tried it. Different sensor
 may need adjustment, experiment with its position
-along the channel, the X parameter:
+along the channel, in case of false runout,
+reduce the X parameter in steps of 0.1:
 
     hall_pos = [X,Y,Z];
 
