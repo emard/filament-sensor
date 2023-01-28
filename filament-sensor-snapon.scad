@@ -17,15 +17,17 @@ snapon_points=[
  // insertion
 ];
 
+extbar_thick = 5.5;
+angular_adjust = 3;
 extbar_points = [
   // go up
   [25,-9], [30,-9],
   // lean forward
   [70,-60], [160, -60],
   // back side return
-  [160, -56], [72, -56],
+  [160, -60+extbar_thick], [70+angular_adjust, -60+extbar_thick],
   // return down
-  [32,-5], [25,-5]
+  [30+angular_adjust,-9+extbar_thick], [25,-9+extbar_thick]
 ];
 
 module frame()
