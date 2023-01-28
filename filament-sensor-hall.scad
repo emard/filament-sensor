@@ -38,7 +38,7 @@
 // Support -> Sensor info
 // Fil. sensor: 1-LOADED, 0-EMPTY
 
-hall_pos = [0.2,0,6]; // in case of false filament runout, decrease X in steps of 0.1
+hall_pos = [0.1,0,6]; // in case of false filament runout, decrease X in steps of 0.1
 
 hall_sensor_dim = [5,5,1.8];
 //hall_sensor_dim = [4.06, 3.0, 1.6]; // Honeywell SS495A package, with enlarge factor for hole
@@ -103,7 +103,7 @@ module roller_cutter(have_sensor=1)
     if(have_sensor>0.5)
     translate(hall_pos)
       //rotate([0,0,channel_angle])
-      rotate([90,0,90+channel_angle/2])
+      rotate([90,0,90+channel_angle/4])
       cube(hall_sensor_dim,center=true);
   }
 }
