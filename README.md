@@ -23,7 +23,7 @@ minimizing friction.
     MK2S rambo13a 10-pin connector looking at PCB pins
     ---------
     x x x x x
-    - s x - +
+    x s x - +
     ---------
     -=GND, +=+5V, s=signal
     
