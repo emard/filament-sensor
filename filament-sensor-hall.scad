@@ -14,6 +14,7 @@
 // x x x x x
 // x s x - +
 // ---------
+//    P3
 // -=GND, +=+5V, s=signal
 
 // MK3 einsy10a 10-pin connector looking at PCB pins
