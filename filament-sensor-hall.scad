@@ -157,7 +157,7 @@ module holder_bars()
     {
       cube(holder_dim,center=true);
       translate([0,0,-holder_backplate_thick/2-0.01])
-      cube(holder_dim+[-holder_thick*2,-holder_thick*2,-holder_backplate_thick],center=true);
+      cube(holder_dim+[-holder_thick*2,-holder_thick*3,-holder_backplate_thick],center=true);
     }
 }
 
@@ -215,18 +215,18 @@ module cableorg_holes(d=1.8)
 module pendulum()
 {
   // for M8 rod
-  /*
   pendulum_dim = [7,40,7];
   pendulum_pos = [0,28,1.5];
   ring_inner_d =  9;
   ring_outer_d = 15;
-  */
 
-  // for printed holder
+  // for printed holder old design
+  /*
   pendulum_dim = [7,40,5];
   pendulum_pos = [0,28,0.5];
   ring_inner_d = 10;
   ring_outer_d = 15;
+  */
 
   difference()
   {
@@ -276,7 +276,7 @@ module pendulum_holder()
 {
   plate_box = [25,30,4];
   axis_pos = [0,-3,0];
-  axis = [9,6]; // d,h
+  axis = [8,6]; // d,h
   difference()
   {
     cube(plate_box,center=true);
@@ -329,9 +329,7 @@ difference()
   connector_pcb();
   screw_holes();
 }
-
 %spacer();
-
 }
 
 // pendulum with backplate
