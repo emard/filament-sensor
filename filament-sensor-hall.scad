@@ -214,10 +214,20 @@ module cableorg_holes(d=1.8)
 
 module pendulum()
 {
+  // for M8 rod
+  /*
+  pendulum_dim = [7,40,7];
+  pendulum_pos = [0,28,1.5];
+  ring_inner_d =  9;
+  ring_outer_d = 15;
+  */
+
+  // for printed holder
   pendulum_dim = [7,40,5];
   pendulum_pos = [0,28,0.5];
   ring_inner_d = 10;
   ring_outer_d = 15;
+
   difference()
   {
     union()
