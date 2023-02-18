@@ -39,7 +39,7 @@
 // Support -> Sensor info
 // Fil. sensor: 1-LOADED, 0-EMPTY
 
-hall_pos = [0.1,0,6]; // in case of false filament runout, decrease X in steps of 0.1
+hall_pos = [0.0,0,6]; // in case of false filament runout, decrease X in steps of 0.1
 
 hall_sensor_dim = [5,5,1.8];
 //hall_sensor_dim = [4.06, 3.0, 1.6]; // Honeywell SS495A package, with enlarge factor for hole
