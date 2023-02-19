@@ -212,6 +212,24 @@ module cableorg_holes(d=1.8)
         cylinder(d=d,h=20,$fn=12,center=true);
 }
 
+module magnets_cover()
+{
+  standoff = 0.3; // tolerance standoff
+  // covers 1st magnet
+  translate([-6,-9-standoff,7])
+    cube([7,2,7+11],center=true);
+  // sovers 2nd magnet
+  translate([11,-9-standoff,7])
+    cube([7,2,7+11],center=true);
+  // connects holders together
+  if(0)
+  translate([4,-9-standoff,3])
+    cube([20,2,10],center=true);
+  // standoff "glue"
+  translate([2.5,-8-standoff/2,1.5])
+    cube([25,standoff,7],center=true);
+}
+
 module pendulum()
 {
   // for M8 rod
@@ -242,6 +260,7 @@ module pendulum()
         cylinder(d=ring_inner_d,h=pendulum_dim[2]+1,$fn=32,center=true);
     cableorg_holes();
   }
+  magnets_cover();
 }
 
 module cable_cover()
@@ -313,8 +332,17 @@ module holder_disc()
   }
 }
 
+module pendulum_assembly()
+{
+  translate([0,0,12])
+  rotate([180,0,180])
+  spacer();
+  pendulum();  
+}
+
 // sensor
-if(1)
+module sensor_assembly()
+{
 rotate([-90,0,0])
 {
 %filament();
@@ -329,16 +357,20 @@ difference()
   connector_pcb();
   screw_holes();
 }
-%spacer();
+translate([0,0,12+1])
+rotate([180,0,180])
+%pendulum_assembly();
+// %spacer();
 }
+}
+
+if(1)
+  sensor_assembly();
 
 // pendulum with backplate
 if(0)
 {
-  translate([0,0,12])
-  rotate([180,0,0])
-  spacer();
-  pendulum();
+  pendulum_assembly();
 }
 
 // pendulum holder to be screwd on snap-on adapter
